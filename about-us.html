@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Jusy Tours and Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* About Hero */
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/directors.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* About Content */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .about-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 60px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1 1 500px;
+        }
+
+        .about-image {
+            flex: 1 1 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-title {
+            color: #004aad;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: lightgreen;
+            margin-top: 10px;
+        }
+
+        /* Team Section */
+        .team-section {
+            background: #f9f9f9;
+            padding: 60px 20px;
+            margin: 40px 0;
+            border-radius: 10px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 15px;
+            border: 3px solid #004aad;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            color: #004aad;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .about-section {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="img/logo.jpeg" alt="jusy tour logo"> 
+        <h2>WELCOME TO JUSY TOURS AND TRAVEL</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about-us.html" class="active">About Us</a></li>
+        </ul>
+        <div>
+            <a href="https://www.facebook.com/Jusytours" target="_blank"><img src="/img/facebook.jpeg" alt="Facebook" width="20"></a>
+            <a href="https://www.x.com/Jusytours" target="_blank"><img src="./img/x.jpg" alt="Twitter" width="20"></a>
+            <a href="https://www.tiktok.com/@jusytours" target="_blank"><img src="/img/tiktok.png" alt="Tiktok" width="20"></a>
+            <a href="https://www.linkedin.com/jusy-tours" target="_blank"><img src="/img/linkedin.png" alt="linkedin" width="20"></a>
+            <a href="https://www.instagram.com/jusy.tours" target="_blank"><img src="/img/instagram.jpeg" alt="instagram" width="20"></a>
+        </div>
+    </nav>
+
+    <div class="about-hero">
+        <h1>Our Story</h1>
+    </div>
+
+    <div class="about-container">
+        <section class="about-section">
+            <div class="about-text">
+                <h2 class="section-title">Who We Are</h2>
+                <p>Jusy Tours and Travel is Uganda's premier safari company, founded in 2010 with a passion for showcasing East Africa's breathtaking wildlife and rich cultural heritage. What began as a small family business has grown into a respected tour operator known for exceptional service and unforgettable experiences.</p>
+                <p>Our team of expert guides and travel consultants brings together decades of local knowledge with international hospitality standards. We're proud to be 100% Ugandan-owned, offering authentic experiences that directly benefit local communities.</p>
+                <p>From our headquarters in Kampala to our network of partners across Uganda and Rwanda, every member of the Jusy Tours family shares our commitment to sustainable tourism and personalized service.</p>
+            </div>
+            <div class="about-image">
+                <img src="img/about/office.jpeg" alt="Jusy Tours office">
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-image">
+                <img src="img/about/gamedrive.jpeg" alt="Safari game drive">
+            </div>
+            <div class="about-text">
+                <h2 class="section-title">Our Mission</h2>
+                <p>To create transformative travel experiences that connect visitors with Uganda's natural wonders while supporting conservation efforts and local communities.</p>
+                <p>We believe responsible tourism should:</p>
+                <ul style="margin-left: 20px; line-height: 1.6;">
+                    <li>Educate visitors about wildlife conservation</li>
+                    <li>Create sustainable livelihoods for local communities</li>
+                    <li>Preserve cultural heritage</li>
+                    <li>Minimize environmental impact</li>
+                </ul>
+                <p>Every safari we organize contributes to these goals through partnerships with national parks, community projects, and eco-friendly lodges.</p>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2 class="section-title" style="text-align: center;">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="img/BOB.jpeg" alt="Tour guide" class="team-photo">
+                    <h3>Robert Mugisha</h3>
+                    <p><em>Head Safari Guide</em></p>
+                    <p>10+ years experience in wildlife tracking and birding. Certified by Uganda Wildlife Authority.</p>
+                </div>
+                <div class="team-member">
+                    <img src="img/ben.JPG" alt="Operations manager" class="team-photo">
+                    <h3>Bernard Mabiriizi</h3>
+                    <p><em>Operations Manager</em></p>
+                    <p>Ensures every detail of your safari is perfectly arranged.</p>
+                </div>
+                <div class="team-member">
+                    <img src="img/set.jpeg" alt="Customer service" class="team-photo">
+                    <h3>Robert Ssettuba</h3>
+                    <p><em>Customer Relations</em></p>
+                    <p>Your personal contact from first inquiry to post-trip follow-up.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">🌍</div>
+                    <h3>Sustainability</h3>
+                    <p>We operate eco-friendly tours that support conservation and minimize environmental impact.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community</h3>
+                    <p>10% of profits go to local schools and healthcare initiatives near national parks.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🦁</div>
+                    <h3>Expertise</h3>
+                    <p>Our guides average 8+ years experience with specialized wildlife training.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">✨</div>
+                    <h3>Excellence</h3>
+                    <p>98% customer satisfaction rate based on post-trip surveys.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section" style="margin-top: 60px;">
+            <div class="about-text">
+                <h2 class="section-title">Why Travel With Us</h2>
+                <p>Choosing Jusy Tours means selecting more than just a safari operator - you're gaining a partner dedicated to making your East African adventure truly exceptional.</p>
+                <p><strong>Here's what sets us apart:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.6;">
+                    <li><strong>Local Knowledge:</strong> Born and raised in Uganda, our team knows hidden gems you won't find in guidebooks</li>
+                    <li><strong>Small Groups:</strong> Average 6-8 guests per safari for personalized attention</li>
+                    <li><strong>Premium Vehicles:</strong> Custom 4x4 Land Cruisers with pop-up roofs for optimal viewing</li>
+                    <li><strong>Flexible Itineraries:</strong> Tailor-made trips to match your interests and pace</li>
+                    <li><strong>24/7 Support:</strong> Local emergency contacts available throughout your trip</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="img/about/murchison.jpeg" alt="Safari vehicle">
+            </div>
+        </section>
+    </div>
+
+   <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>About Jusy Tours</h3>
+            <p>
+                Jusy Tours and Travel is your premier safari operator in Uganda, offering unforgettable wildlife experiences and cultural adventures. Let us take you there!
+            </p>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section important-links">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="https://ugandawildlife.org/national-parks/murchison-falls-national-park/" target="_blank">Murchison Falls</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/queen-elizabeth-national-park/" target="_blank">Queen Elizabeth National Park</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/lake-mburo/" target="_blank">Lake Mburo National Park</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/kidepo-valley-national-park/" target="_blank">Kidepo Valley National Park</a></li>
+                <li><a href="https://ugandawildlife.org/" target="_blank">Uganda Wildlife Authority</a></li>
+                <li><a href="https://www.tourism.go.ug/" target="_blank">Ministry of Tourism and Antiquities</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:jusytoursandtravel@gmail.com">jusytoursandtravel@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+256784180042">+256784180042/+256704212214</a></p>
+        </div>
+        <div class="footer-section social">
+            <h3>Follow Us</h3>
+            <div class="socials">
+                <a href="https://www.facebook.com/Jusytours" target="_blank" aria-label="Jusy Tours Facebook Page"><img src="/img/facebook.jpeg" alt="Facebook" width="30"></a>
+                <a href="https://www.x.com/Jusytours" target="_blank" aria-label="Jusy Tours X Page"><img src="/img/x.jpg" alt="X" width="30"></a>
+                <a href="https://www.tiktok.com/@jusytours" target="_blank" aria-label="Jusy Tours TikTok Page"><img src="/img/tiktok.png" alt="TikTok" width="30"></a>
+                <a href="https://www.linkedin.com/jusy-tours" target="_blank" aria-label="Jusy Tours LinkedIn Page"><img src="/img/linkedin.png" alt="LinkedIn" width="30"></a>
+                <a href="https://www.instagram.com/jusy.tours" target="_blank" aria-label="Jusy Tours Instagram Page"><img src="/img/instagram.jpeg" alt="Instagram" width="30"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© Jusy Tours <span id="current-year"></span>. <i>We take you there</i></p>
+    </div>
+</footer>
+</body>
+</html>
