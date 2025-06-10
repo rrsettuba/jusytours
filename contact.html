@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Jusy Tours and Travel</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Base Styles */
+    .contact-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/giraffe-pic.jpeg');
+      background-size: cover;
+      background-position: center;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    
+    .contact-hero h1 {
+      font-size: 2.8rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-in;
+    }
+    
+    .contact-container {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    /* Form Section */
+    .form-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .contact-form, .contact-info {
+      flex: 1 1 400px;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .contact-form h2, .contact-info h2,
+    .testimonials h2, .faq h2 {
+      color: #004aad;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      border-bottom: 2px solid lightgreen;
+      padding-bottom: 10px;
+    }
+    
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .contact-form input, 
+    .contact-form textarea,
+    .contact-form select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    .contact-form input:focus, 
+    .contact-form textarea:focus,
+    .contact-form select:focus {
+      border-color: #004aad;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 74, 173, 0.2);
+    }
+    
+    .contact-form button {
+      padding: 14px;
+      background-color: #004aad;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      transition: all 0.3s;
+      margin-top: 10px;
+    }
+    
+    .contact-form button:hover {
+      background-color: #003580;
+      transform: translateY(-2px);
+    }
+    
+    /* Contact Info */
+    .contact-info p {
+      margin-bottom: 15px;
+      font-size: 16px;
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+    }
+    
+    .contact-info i {
+      margin-right: 10px;
+      color: #004aad;
+      width: 20px;
+      text-align: center;
+      font-size: 1.1em;
+    }
+    
+    .business-hours {
+      margin: 25px 0;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    
+    .business-hours h3 {
+      color: #004aad;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Social Links */
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin: 25px 0;
+      flex-wrap: wrap;
+    }
+    
+    .social-links a {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      background: #f0f0f0;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      transform: scale(1.1);
+      background: #004aad;
+    }
+    
+    .social-links a:hover img {
+      filter: brightness(0) invert(1);
+    }
+    
+    .social-links img {
+      width: 25px;
+      height: 25px;
+      transition: all 0.3s;
+    }
+    
+    /* Map */
+    .map-container {
+      margin-top: 30px;
+    }
+    
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Call-to-Action */
+    .cta-button {
+      display: inline-block;
+      background: #004aad;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 20px 0;
+      transition: all 0.3s;
+      text-align: center;
+      width: 100%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta-button:hover {
+      background: #003580;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-button span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background: #f9f9f9;
+      padding: 40px 20px;
+      margin: 40px 0;
+      border-radius: 10px;
+    }
+    
+    .testimonial-carousel {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .testimonial {
+      min-width: 300px;
+      background: white;
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      scroll-snap-align: start;
+    }
+    
+    .testimonial p:first-child {
+      font-style: italic;
+      margin-bottom: 15px;
+      position: relative;
+    }
+    
+    .testimonial p:first-child::before,
+    .testimonial p:first-child::after {
+      content: '"';
+      color: #004aad;
+      font-size: 1.5em;
+    }
+    
+    .testimonial p:last-child {
+      font-weight: bold;
+      color: #004aad;
+      text-align: right;
+    }
+    
+    /* FAQ */
+    .faq {
+      margin: 60px 0;
+    }
+    
+    details {
+      background: white;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+    
+    summary {
+      padding: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      color: #004aad;
+    }
+    
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      font-size: 1.5em;
+      transition: transform 0.3s;
+    }
+    
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+    
+    details p {
+      padding: 0 20px 20px;
+      margin: 0;
+      line-height: 1.6;
+    }
+    
+    /* Response Promise */
+    .response-promise {
+      background: #e6f7ff;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid #004aad;
+    }
+    
+    .response-promise p {
+      margin: 0;
+      font-weight: bold;
+      color: #004aad;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+      
+      .contact-container {
+        padding: 20px 10px;
+      }
+      
+      .form-section {
+        gap: 20px;
+      }
+      
+      .contact-form, .contact-info {
+        padding: 20px;
+      }
+      
+      .testimonial {
+        min-width: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <img class="logo" src="img/logo.jpeg" alt="jusy tour logo"> 
+    <h2>WELCOME TO JUSY TOURS AND TRAVEL</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+    </ul>
+    <div>
+      <a href="https://www.facebook.com/Jusytours" target="_blank"><img src="/img/facebook.jpeg" alt="Facebook" width="20"></a>
+      <a href="https://www.x.com/Jusytours" target="_blank"><img src="./img/x.jpg" alt="Twitter" width="20"></a>
+      <a href="https://www.tiktok.com/@jusytours" target="_blank"><img src="/img/tiktok.png" alt="Tiktok" width="20"></a>
+      <a href="https://www.linkedin.com/jusy-tours" target="_blank"><img src="/img/linkedin.png" alt="linkedin" width="20"></a>
+      <a href="https://www.instagram.com/jusy.tours" target="_blank"><img src="/img/instagram.jpeg" alt="instagram" width="20"></a>
+    </div>
+  </nav>
+
+  <div class="contact-hero">
+    <h1>Get In Touch With Us</h1>
+  </div>
+
+  <div class="contact-container">
+    <div class="form-section">
+      <div class="contact-form">
+        <h2>Send Us a Message</h2>
+        
+        <div class="response-promise">
+          <p>💌 <strong>We respond within the shortest time possible!</strong></p>
+        </div>
+        
+        <form action="mailto:info@jusytours.com" method="post" enctype="text/plain">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Kato tom" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="tom@example.com" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+256 123 456789">
+          </div>
+          
+          <div class="form-group">
+            <label for="tour">Interested Tour Package</label>
+            <select id="tour" name="tour">
+              <option value="">Select a tour package</option>
+              <option value="gorilla">Family trip</option>
+              <option value="wildlife">Wildlife Safari</option>
+              <option value="chimpanzee">Weekend get-away</option>
+              <option value="custom">Custom Tour</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Tell us about your travel plans..." required></textarea>
+          </div>
+          
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><i>📍</i> <strong>Address:</strong> Kampala, Uganda</p>
+        <p><i>📞</i> <strong>Phone:</strong> +256 784 180042 / +256 704 212214</p>
+        <p><i>✉️</i> <strong>Email:</strong> jusytoursandtravel@gmail.com</p>
+        
+        <div class="business-hours">
+          <h3><i>🕒</i> Business Hours</h3>
+          <p><i>🟢</i> <strong>Mon - Fri:</strong> 8:00 AM - 6:00 PM</p>
+          <p><i>🟡</i> <strong>Saturday:</strong> 9:00 AM - 4:00 PM</p>
+          <p><i>🔴</i> <strong>Sunday:</strong> Closed</p>
+        </div>
+        
+        <a href="tel:+256784180042" class="cta-button">
+          <span>📞 Call Us Now</span>
+        </a>
+        
+        <div class="social-links">
+          <a href="https://www.facebook.com/Jusytours" target="_blank" title="Facebook"><img src="/img/facebook.jpeg" alt="Facebook"></a>
+          <a href="https://www.x.com/Jusytours" target="_blank" title="Twitter"><img src="./img/x.jpg" alt="Twitter"></a>
+          <a href="https://www.tiktok.com/jusytours" target="_blank" title="TikTok"><img src="/img/tiktok.png" alt="TikTok"></a>
+          <a href="https://www.instagram.com/jusytours" target="_blank" title="Instagram"><img src="/img/instagram.jpeg" alt="Instagram"></a>
+          <a href="https://www.linkedin.com/jusy-tours" target="_blank" title="LinkedIn"><img src="/img/linkedin.png" alt="LinkedIn"></a>
+        </div>
+        
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.7536223157963!2d32.58184731475387!3d0.3132203640128504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb93c0005e3d%3A0xe0ca1c7d1e4f3f8e!2sKampala%2C%20Uganda!5e0!3m2!1sen!2sus!4v1620000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Testimonials Section -->
+    <div class="testimonials">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonial-carousel">
+        <div class="testimonial">
+          <p>The gorilla trekking experience organized by Jusy Tours was absolutely magical. Our guide was knowledgeable and made sure we had the best views.</p>
+          <p>- Sarah Collins., USA</p>
+        </div>
+         <div class="testimonial">
+          <p>Professional service, excellent communication, and breathtaking experiences. Highly recommend for anyone visiting Uganda.</p>
+          <p>- Mr. Wameri W., Kenya</p>
+        </div>
+        <div class="testimonial">
+          <p>From the moment we landed in Uganda until our departure, everything was perfectly arranged. Will definitely use Jusy Tours again!</p>
+          <p>- James G., UK</p>
+        </div>
+        <div class="testimonial">
+          <p>Our family safari was unforgettable. The team at Jusy Tours took care of every detail, even special meals for our kids.</p>
+          <p>- The Thompson Family, Canada</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- FAQ Section -->
+    <div class="faq">
+      <h2>Frequently Asked Questions</h2>
+      
+      <details>
+        <summary>What's the best time to book a safari?</summary>
+        <p>We recommend booking at least 3-6 months in advance for peak seasons (June-September and December-February). For last-minute bookings, we'll do our best to accommodate you based on availability.</p>
+      </details>
+      
+      <details>
+        <summary>What payment methods do you accept?</summary>
+        <p>We accept bank transfers, credit cards (Visa/Mastercard), and mobile money payments. A 30% deposit is required to secure your booking.</p>
+      </details>
+      
+      <details>
+        <summary>Do you offer customized safari packages?</summary>
+        <p>Absolutely! We specialize in creating personalized safari experiences tailored to your interests, budget, and travel style. Just let us know your preferences.</p>
+      </details>
+      
+      <details>
+        <summary>What safety measures do you have in place?</summary>
+        <p>Your safety is our priority. All our vehicles are well-maintained, guides are first-aid certified, and we follow all national park safety protocols. We also provide 24/7 emergency support.</p>
+      </details>
+      
+      <details>
+        <summary>What should I pack for my Uganda safari?</summary>
+        <p>We'll send you a detailed packing list after booking, but essentials include neutral-colored clothing, comfortable walking shoes, binoculars, sunscreen, and a good camera.</p>
+      </details>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>About Jusy Tours</h3>
+            <p>
+                Jusy Tours and Travel is your premier safari operator in Uganda, offering unforgettable wildlife experiences and cultural adventures. <br><i>Let us take you there!</i>
+            </p>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section important-links">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="https://ugandawildlife.org/national-parks/murchison-falls-national-park/" target="_blank">Murchison Falls</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/queen-elizabeth-national-park/" target="_blank">Queen Elizabeth National Park</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/lake-mburo/" target="_blank">Lake Mburo National Park</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/kidepo-valley-national-park/" target="_blank">Kidepo Valley National Park</a></li>
+                <li><a href="https://ugandawildlife.org/" target="_blank">Uganda Wildlife Authority</a></li>
+                <li><a href="https://www.tourism.go.ug/" target="_blank">Ministry of Tourism and Antiquities</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:jusytoursandtravel@gmail.com">jusytoursandtravel@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+256784180042">+256784180042/+256704212214</a></p>
+        </div>
+        <div class="footer-section social">
+            <h3>Follow Us</h3>
+            <div class="socials">
+                <a href="https://www.facebook.com/Jusytours" target="_blank" aria-label="Jusy Tours Facebook Page"><img src="/img/facebook.jpeg" alt="Facebook" width="30"></a>
+                <a href="https://www.x.com/Jusytours" target="_blank" aria-label="Jusy Tours X Page"><img src="/img/x.jpg" alt="X" width="30"></a>
+                <a href="https://www.tiktok.com/@jusytours" target="_blank" aria-label="Jusy Tours TikTok Page"><img src="/img/tiktok.png" alt="TikTok" width="30"></a>
+                <a href="https://www.linkedin.com/jusy-tours" target="_blank" aria-label="Jusy Tours LinkedIn Page"><img src="/img/linkedin.png" alt="LinkedIn" width="30"></a>
+                <a href="https://www.instagram.com/jusy.tours" target="_blank" aria-label="Jusy Tours Instagram Page"><img src="/img/instagram.jpeg" alt="Instagram" width="30"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© Jusy Tours <span id="current-year"></span>. <i>We take you there</i></p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Jusy Tours and Travel</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Gallery Hero */
+        .gallery-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('img/eleph.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .gallery-hero h1 {
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Gallery Grid */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 74, 173, 0.8);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Filter Buttons */
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: #004aad;
+            color: white;
+        }
+
+        /* Lightbox Modal */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border: 3px solid white;
+            border-radius: 5px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .prev-btn, .next-btn {
+            position: absolute;
+            top: 50%;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            padding: 10px;
+            transform: translateY(-50%);
+        }
+
+        .prev-btn { left: 30px; }
+        .next-btn { right: 30px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <img class="logo" src="img/logo.jpeg" alt="jusy tour logo"> 
+        <h2>WELCOME TO JUSY TOURS AND TRAVEL</h2>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="about-us.html">About Us</a></li>
+        </ul>
+        <div>
+            <a href="https://www.facebook.com/Jusytours" target="_blank"><img src="/img/facebook.jpeg" alt="Facebook" width="20"></a>
+            <a href="https://www.x.com/Jusytours" target="_blank"><img src="./img/x.jpg" alt="Twitter" width="20"></a>
+            <a href="https://www.tiktok.com/@jusytours" target="_blank"><img src="/img/tiktok.png" alt="Tiktok" width="20"></a>
+            <a href="https://www.linkedin.com/jusy-tours" target="_blank"><img src="/img/linkedin.png" alt="linkedin" width="20"></a>
+            <a href="https://www.instagram.com/jusy.tours" target="_blank"><img src="/img/instagram.jpeg" alt="instagram" width="20"></a>
+        </div>
+    </nav>
+
+    <div class="gallery-hero">
+        <h1>Our Safari Moments</h1>
+    </div>
+
+    <div class="gallery-container">
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="wildlife">Wildlife</button>
+            <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+            <button class="filter-btn" data-filter="adventures">Adventures</button>
+            <button class="filter-btn" data-filter="culture">Culture</button>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Wildlife Images -->
+            <div class="gallery-item" data-category="wildlife">
+                <img src="img/antelopes.jpeg" alt="Antelopes in the wild">
+                <div class="gallery-caption">Antelopes in Murchison Falls National Park</div>
+            </div>
+            <div class="gallery-item" data-category="wildlife">
+                <img src="img/buf.jpg" alt="Buffalo">
+                <div class="gallery-caption">African Buffalo in Queen Elizabeth NP</div>
+            </div>
+            <div class="gallery-item" data-category="wildlife">
+                <img src="img/eleph.jpg" alt="Elephant">
+                <div class="gallery-caption">Elephant family in the wild</div>
+            </div>
+            
+            <!-- Landscape Images -->
+            <div class="gallery-item" data-category="landscapes">
+                <img src="img/bluenile.JPG" alt="Blue Nile">
+                <div class="gallery-caption">The majestic Blue Nile River</div>
+            </div>
+            <div class="gallery-item" data-category="landscapes">
+                <img src="img/bridge.JPG" alt="Bridge">
+                <div class="gallery-caption">Suspension bridge over the Nile</div>
+            </div>
+            <div class="gallery-item" data-category="landscapes">
+                <img src="img/creter.jpg" alt="Crater lake">
+                <div class="gallery-caption">Scenic crater lake in western Uganda</div>
+            </div>
+            
+            <!-- Adventure Images -->
+            <div class="gallery-item" data-category="adventures">
+                <img src="img/tubing.jpg" alt="River tubing">
+                <div class="gallery-caption">White water tubing adventure</div>
+            </div>
+            <div class="gallery-item" data-category="adventures">
+                <img src="img/approachmasiro.jpeg" alt="Boat cruise">
+                <div class="gallery-caption">Boat cruise to Murchison Falls</div>
+            </div>
+            <div class="gallery-item" data-category="adventures">
+                <img src="img/bazungu.jpeg" alt="Safari vehicle">
+                <div class="gallery-caption">Game drive in our custom safari vehicles</div>
+            </div>
+            
+            <!-- Culture Images -->
+            <div class="gallery-item" data-category="culture">
+                <img src="img/teachinmasiro.jpeg" alt="Cultural exchange">
+                <div class="gallery-caption">Cultural exchange with local community</div>
+            </div>
+            <div class="gallery-item" data-category="culture">
+                <img src="img/aids.jpeg" alt="Community event">
+                <div class="gallery-caption">Participating in community health events</div>
+            </div>
+            <div class="gallery-item" data-category="culture">
+                <img src="img/happy.JPG" alt="Happy tourists">
+                <div class="gallery-caption">Our happy tourists with local guides</div>
+            </div>
+            
+            <!-- More of your existing images (add data-category as needed) -->
+            <div class="gallery-item" data-category="wildlife">
+                <img src="img/buffalos.jpg" alt="Buffalos">
+                <div class="gallery-caption">Buffalo herd at sunset</div>
+            </div>
+            <div class="gallery-item" data-category="landscapes">
+                <img src="img/busowoko.jpg" alt="Busowoko falls">
+                <div class="gallery-caption">Busowoko Falls in eastern Uganda</div>
+            </div>
+            <div class="gallery-item" data-category="wildlife">
+                <img src="img/giraffe pic.jpeg" alt="Giraffe">
+                <div class="gallery-caption">Rothschild giraffe in Murchison Falls</div>
+            </div>
+            <!-- Continue adding all your images with appropriate categories -->
+        </div>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-btn">&times;</span>
+        <span class="prev-btn">&#10094;</span>
+        <span class="next-btn">&#10095;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h3>About Jusy Tours</h3>
+            <p>
+                Jusy Tours and Travel is your premier safari operator in Uganda, offering unforgettable wildlife experiences and cultural adventures. <br><i>Let us take you there!</i>
+            </p>
+        </div>
+        <div class="footer-section links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-section important-links">
+            <h3>Important Links</h3>
+            <ul>
+                <li><a href="https://ugandawildlife.org/national-parks/murchison-falls-national-park/" target="_blank">Murchison Falls</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/queen-elizabeth-national-park/" target="_blank">Queen Elizabeth National Park</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/lake-mburo/" target="_blank">Lake Mburo National Park</a></li>
+                <li><a href="https://ugandawildlife.org/national-parks/kidepo-valley-national-park/" target="_blank">Kidepo Valley National Park</a></li>
+                <li><a href="https://ugandawildlife.org/" target="_blank">Uganda Wildlife Authority</a></li>
+                <li><a href="https://www.tourism.go.ug/" target="_blank">Ministry of Tourism and Antiquities</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h3>Contact Us</h3>
+            <p><i class="fas fa-envelope"></i> Email: <a href="mailto:jusytoursandtravel@gmail.com">jusytoursandtravel@gmail.com</a></p>
+            <p><i class="fas fa-phone"></i> Phone: <a href="tel:+256784180042">+256784180042/+256704212214</a></p>
+        </div>
+        <div class="footer-section social">
+            <h3>Follow Us</h3>
+            <div class="socials">
+                <a href="https://www.facebook.com/Jusytours" target="_blank" aria-label="Jusy Tours Facebook Page"><img src="/img/facebook.jpeg" alt="Facebook" width="30"></a>
+                <a href="https://www.x.com/Jusytours" target="_blank" aria-label="Jusy Tours X Page"><img src="/img/x.jpg" alt="X" width="30"></a>
+                <a href="https://www.tiktok.com/@jusytours" target="_blank" aria-label="Jusy Tours TikTok Page"><img src="/img/tiktok.png" alt="TikTok" width="30"></a>
+                <a href="https://www.linkedin.com/jusy-tours" target="_blank" aria-label="Jusy Tours LinkedIn Page"><img src="/img/linkedin.png" alt="LinkedIn" width="30"></a>
+                <a href="https://www.instagram.com/jusy.tours" target="_blank" aria-label="Jusy Tours Instagram Page"><img src="/img/instagram.jpeg" alt="Instagram" width="30"></a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>© Jusy Tours <span id="current-year"></span>. <i>We take you there</i></p>
+    </div>
+</footer>
+
+    <script>
+        // Image Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active button
+                filterBtns.forEach(btn => btn.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                
+                // Filter images
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.dataset.category === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-btn');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const images = document.querySelectorAll('.gallery-item img');
+        let currentImageIndex = 0;
+        
+        // Open lightbox
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                currentImageIndex = index;
+            });
+        });
+        
+        // Close lightbox
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+        
+        // Navigate images
+        function showImage(index) {
+            // Ensure index is within bounds
+            if (index < 0) {
+                index = images.length - 1;
+            } else if (index >= images.length) {
+                index = 0;
+            }
+            
+            currentImageIndex = index;
+            lightboxImg.src = images[currentImageIndex].src;
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            showImage(currentImageIndex - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            showImage(currentImageIndex + 1);
+        });
+        
+        // Close when clicking outside image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                } else if (e.key === 'ArrowLeft') {
+                    showImage(currentImageIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    showImage(currentImageIndex + 1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
