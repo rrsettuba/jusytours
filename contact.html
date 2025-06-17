@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Jusy Tours and Travel</title>
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
   <style>
     /* Base Styles */
@@ -213,34 +214,6 @@
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     }
     
-    /* Call-to-Action */
-    .cta-button {
-      display: inline-block;
-      background: #004aad;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      margin: 20px 0;
-      transition: all 0.3s;
-      text-align: center;
-      width: 100%;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-    
-    .cta-button:hover {
-      background: #003580;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-    }
-    
-    .cta-button span {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
     
     /* Testimonials */
     .testimonials {
@@ -379,23 +352,42 @@
   </style>
 </head>
 <body>
-  <nav>
-    <img class="logo" src="img/logo.jpeg" alt="jusy tour logo"> 
-    <h2>WELCOME TO JUSY TOURS AND TRAVEL</h2>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="about-us.html">About Us</a></li>
-    </ul>
-    <div>
-      <a href="https://www.facebook.com/Jusytours" target="_blank"><img src="/img/facebook.jpeg" alt="Facebook" width="20"></a>
-      <a href="https://www.x.com/Jusytours" target="_blank"><img src="./img/x.jpg" alt="Twitter" width="20"></a>
-      <a href="https://www.tiktok.com/@jusytours" target="_blank"><img src="/img/tiktok.png" alt="Tiktok" width="20"></a>
-      <a href="https://www.linkedin.com/jusy-tours" target="_blank"><img src="/img/linkedin.png" alt="linkedin" width="20"></a>
-      <a href="https://www.instagram.com/jusy.tours" target="_blank"><img src="/img/instagram.jpeg" alt="instagram" width="20"></a>
-    </div>
-  </nav>
+  <div class="navigation-container">
+      <nav class="main-nav">
+          <div class="nav-content">
+              <!-- Logo and Hamburger -->
+              <div class="nav-header">
+                  <img class="logo" src="img/logo.jpeg" alt="Jusy Tour logo">
+                  <h2 class="brand-name">JUSY TOURS AND TRAVEL</h2>
+                  <button class="hamburger" aria-label="Menu">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                  </button>
+              </div>
+              
+              <!-- Navigation Links -->
+              <ul class="nav-links">
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="contact.html" class="active">Contact</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <li><a href="about-us.html">About Us</a></li>
+              </ul>
+              
+              <!-- Social Icons -->
+              <div class="socials">
+                  <a href="https://www.facebook.com/Jusytours" target="_blank" aria-label="Facebook"><img src="/img/facebook.jpeg" alt="Facebook" width="20"></a>
+                  <a href="https://www.x.com/Jusytours" target="_blank" aria-label="Twitter"><img src="./img/x.jpg" alt="Twitter" width="20"></a>
+                  <a href="https://www.tiktok.com/@jusytours" target="_blank" aria-label="TikTok"><img src="/img/tiktok.png" alt="Tiktok" width="20"></a>
+                  <a href="https://www.linkedin.com/jusy-tours" target="_blank" aria-label="LinkedIn"><img src="/img/linkedin.png" alt="linkedin" width="20"></a>
+                  <a href="https://www.instagram.com/jusy.tours" target="_blank" aria-label="Instagram"><img src="/img/instagram.jpeg" alt="instagram" width="20"></a>
+              </div>
+              
+              <!-- Fixed CTA Button -->
+              <a href="contact.html" class="cta-button">Book Now</a>
+          </div>
+      </nav>
+  </div>
 
  <div class="contact-hero">
   <video autoplay muted loop playsinline class="hero-video">
@@ -465,7 +457,7 @@
           <p><i>🔴</i> <strong>Sunday:</strong> Closed</p>
         </div>
         
-        <a href="tel:+256784180042" class="cta-button">
+        <a href="tel:+256784180042" class="cta-button1">
           <span>📞 Call Us Now</span>
         </a>
         
@@ -585,5 +577,9 @@
         <p>© Jusy Tours <span id="current-year"></span>. <i>We take you there</i></p>
     </div>
 </footer>
+
+
+<script src="js/bootstrap.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
